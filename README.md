@@ -2,24 +2,36 @@ APPROACH
 
 This is a Hadoop Map-Reduce project that takes an XML file with publication information of professors and generates relationship graph for UIC professors. The relationships are determined by co-authorship of publications.
 The project has two steps:
+
 1.	Map-Reduce step: This is accomplished using the Hadoop Map-Reduce
 The input to the map-reduce program is the XML file. Each publication is defined within <article></article> or <inproceedings></ inproceedings> tags.
 The program implements the following classes:
+
 XMLInputFormat: This class is used to define an input format specific to XML input
+
 XMLRecordReader: This class takes the input split information for each split and finds the relevant information for each publication within start and end tags. The purpose of implementing this class is to make sure that the splitting of the data doesn’t result in separation of start and end tags into different splits. This implementation can get data from latter splits.
 The record reader provides the input to the mapper as follows:
 (K,V) => (1, <article>content</article>)
+
 Map: This class implements the mapper. It generates the following key values:
+
 (Mark Grechanik -> Ugo Buy) (Mark Grechanik -> Chris Kanich)
+
 Reduce: This class implements the reducer and takes the mapper output as input. It generates the following key values:
+
 (Mark Grechanik -> Ugo Buy,Chris Kanich ) - Such (K,V) pairs will help in calculating the co-authorship relationship between authors.
+
 Note: It is possible that a professor can be a solo author for a publication. Also, we want to calculate the total number of publications for an author too. Thus, we add the following key-value pair:
+
 (Mark Grechanik -> Mark Grechanik) – Such (K,V) pairs will help in calculating the total publications of an author.
+
 
 2.	Generate the csv which will be fed into Gephi to generate the graph
 I have implemented this using two approaches:
+
 a.	Graph generated programmatically using Gephi toolkit
 Output of MR is used to generate graph programmatically and store in gexf file
+
 b.	Graph generated from CSV using Gephi Software
 The output of the Map-Reduce program is converted into a csv file. This csv file is imported into the Gephi software for graph visualization.
 
