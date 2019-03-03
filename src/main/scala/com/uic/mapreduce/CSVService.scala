@@ -2,6 +2,7 @@ package com.uic.mapreduce
 
 import java.io.{BufferedWriter, File, FileWriter}
 
+import com.typesafe.config.ConfigFactory
 import org.slf4j.{Logger, LoggerFactory}
 
 import scala.io.Source
@@ -21,16 +22,16 @@ object CSVService {
   def main(args: Array[String]): Unit = {
 
     logger.info("Generating CSV file")
-    val file = new File("output.csv")
+    val file = new File(ConfigFactory.load().getString("graph.outputFile"))
     val bw = new BufferedWriter(new FileWriter(file))
     bw.write("Source,Target\n")
 
     var professorList : Set[String] = Set()
-    for(line <- Source.fromFile("professors.txt").getLines()){
+    for(line <- Source.fromFile(ConfigFactory.load().getString("professorFile")).getLines()){
       professorList += line.trim
     }
 
-    for (line <- Source.fromFile("D:\\cs441\\output_small\\part-r-00000").getLines) {
+    for (line <- Source.fromFile(ConfigFactory.load().getString("graph.inputFile")).getLines) {
       breakable {
       val splits : Array[String] = line.split(";")
 

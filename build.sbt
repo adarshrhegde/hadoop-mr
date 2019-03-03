@@ -20,12 +20,11 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-api" % slf4jVersion,
   "ch.qos.logback" % "logback-core" % logbackVersion,
   "ch.qos.logback" % "logback-classic" % logbackVersion,
-  //"com.github.pureconfig" %% "pureconfig" % pureConfigVersion,
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+  "org.scalactic" %% "scalactic" % "3.0.5",
   "org.apache.hadoop" % "hadoop-client" % "2.2.0",
   "org.scala-lang.modules" %% "scala-xml" % "1.1.1",
   "com.typesafe" % "config" % "1.2.1"
-
 )
 
 
