@@ -1,11 +1,17 @@
 package com.uic.mapreduce
 
+import com.typesafe.config.ConfigFactory
 import org.apache.hadoop.io.Text
-
+import scala.collection.JavaConverters._
 import scala.xml.{Node, XML}
 
 object Test extends App {
 
+  //print(ConfigFactory.load().getStringList("").get(0))
+  val inputFile = ConfigFactory.load().getString("mapReduce.xml.topTag")
+  print(inputFile)
+  print(ConfigFactory.load().getStringList("mapReduce.xml.startTags").asScala.toList)
+  print(ConfigFactory.load().getStringList("mapReduce.xml.endTags"))
   /*private val TOP_TAG : String = """<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE dblp PUBLIC "-//DBLP//DTD//EN" "https://dblp.uni-trier.de/xml/dblp.dtd"><article mdate="2017-05-24" key="conf/icst/GrechanikHB13"> <author>Mark</author> <author>Ugo</author> <author>Isabel</author> <title>Testing Database-Centric Applications for Causes of Database Deadlocks.</title> <pages>174-183</pages> <year>2013</year> <booktitle>ICST</booktitle> <ee>https://doi.org/10.1109/ICST.2013.19</ee> <ee>http://doi.ieeecomputersociety.org/10.1109/ICST.2013.19</ee> <crossref>conf/icst/2013</crossref> <url>db/conf/icst/icst2013.html#GrechanikHB13</url> </article> <article mdate="2017-05-24" key="conf/icst/GrechanikHB13"> <author>Mark</author> <author>Isabel</author> <author>Hossain</author> <title>Testing Database-Centric Applications for Causes of Database Deadlocks.</title> <pages>174-183</pages> <year>2013</year> <booktitle>ICST</booktitle> <ee>https://doi.org/10.1109/ICST.2013.19</ee> <ee>http://doi.ieeecomputersociety.org/10.1109/ICST.2013.19</ee> <crossref>conf/icst/2013</crossref> <url>db/conf/icst/icst2013.html#GrechanikHB13</url> </article>"""
 
   val article : scala.xml.Elem = XML.loadString("""<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE dblp PUBLIC "-//DBLP//DTD//EN" "https://dblp.uni-trier.de/xml/dblp.dtd"><article mdate="2017-05-24" key="conf/icst/GrechanikHB13"> <author>Mark</author><title>Testing Database-Centric Applications for Causes of Database Deadlocks.</title> <pages>174-183</pages> <year>2013</year> <booktitle>ICST</booktitle> <ee>https://doi.org/10.1109/ICST.2013.19</ee> <ee>http://doi.ieeecomputersociety.org/10.1109/ICST.2013.19</ee> <crossref>conf/icst/2013</crossref> <url>db/conf/icst/icst2013.html#GrechanikHB13</url> </article>""")
@@ -17,11 +23,11 @@ object Test extends App {
     print(new Text(combo(0).child(0).toString()).toString, new Text(combo(1).child(0).toString()).toString)
   })*/
 
-  var startTag : List[Array[Byte]]= List("article","inproceedings").map(s => s.getBytes("utf-8"))
+ /* var startTag : List[Array[Byte]]= List("article","inproceedings").map(s => s.getBytes("utf-8"))
 
   var res = readUntilMatchStart(startTag).getOrElse(-1)
 
-  print(res)
+  print(res)*/
 
 
 /*

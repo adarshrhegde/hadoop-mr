@@ -1,4 +1,5 @@
 package com.uic.mapreduce
+import com.typesafe.config.ConfigFactory
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.Path
 import org.apache.hadoop.io.Text
@@ -8,22 +9,26 @@ import org.apache.hadoop.mapreduce.lib.output.{FileOutputFormat, TextOutputForma
 import org.slf4j.LoggerFactory
 //import pureconfig.generic.auto._
 
-case class Config(name:String)
 
 class Main{}
 
+/**
+  * Main program
+  * Map Reduce execution starts here
+  */
 object Main {
 
   val logger = LoggerFactory.getLogger(classOf[Main])
 
-  //val config = ConfigReader.loadConfig()
-
   def main(args: Array[String]): Unit = {
 
     val configuration = new Configuration()
-    configuration.set("mapreduce.output.textoutputformat.separator","|")
-    val job = Job.getInstance(configuration, "Co-Author-Discovery")
+    /** Separator between key value in output set to comma */
+    configuration.set("mapreduce.output.textoutputformat.separator",";")
 
+    val job = Job.getInstance(configuration, ConfigFactory.load().getString("mapReduce.jobName"))
+
+    /** Setting configurations for the job  */
     job.setJarByClass(this.getClass)
     job.setOutputKeyClass(classOf[Text])
     job.setOutputValueClass(classOf[Text])
