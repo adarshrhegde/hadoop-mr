@@ -21,7 +21,8 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val configuration = new Configuration()
-    val job = Job.getInstance(configuration, "Co-Author discovery")
+    configuration.set("mapreduce.output.textoutputformat.separator","|")
+    val job = Job.getInstance(configuration, "Co-Author-Discovery")
 
     job.setJarByClass(this.getClass)
     job.setOutputKeyClass(classOf[Text])

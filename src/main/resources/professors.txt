@@ -12,11 +12,11 @@ Robert V. Kenyon
 Ajay D. Kshemkalyani
 John Lillis
 William Mansky
-G. Elisabeta Marai,Georgeta Elisabeta Marai
+G. Elisabeta Marai
 Evan McCarty
 Nasim Mobasheri
-Natalie Parde,Natalie Paige Parde
-Iasonas Polakis,Jason Polakis
+Natalie Parde
+Iasonas Polakis
 Shanon M. Reckinger
 Scott J. Reckinger
 Dale Reed
@@ -28,14 +28,14 @@ Xiaorui Sun
 Mitchell D. Theys
 Patrick Troy
 Balajee Vamanan
-Ouri Wolfson,Ouri E. Wolfson
+Ouri Wolfson
 Xingbo Wu
 Elena Zheleva
 Brian D. Ziebart
 Lenore D. Zuck
 John T. Bell
 Gonzalo A. Bello
-Ugo Buy,Ugo A. Buy
+Ugo Buy
 Isabel F. Cruz
 Bhaskar DasGupta
 Joseph Hummel
@@ -43,7 +43,7 @@ Andrew E. Johnson
 Ian A. Kash
 Bing Liu 0001
 Peter C. Nelson
-A. Prasad Sistla,Prasad Sistla
+A. Prasad Sistla
 Robert H. Sloan
 V. N. Venkatakrishnan
 Philip S. Yu

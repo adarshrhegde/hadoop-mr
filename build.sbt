@@ -23,11 +23,8 @@ libraryDependencies ++= Seq(
   //"com.github.pureconfig" %% "pureconfig" % pureConfigVersion,
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "org.apache.hadoop" % "hadoop-client" % "2.2.0",
-  "org.scala-lang.modules" %% "scala-xml" % "1.1.1",
-  "org.scala-graph" %% "graph-dot" % "1.12.1",
-  "org.scala-graph" %% "graph-core" % "1.12.5"
-
-
+  "org.scala-lang.modules" %% "scala-xml" % "1.1.1"
+  //"org.gephi" % "gephi-toolkit" % "0.9.2" from "file:///"
 
 )
 
