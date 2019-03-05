@@ -1,0 +1,13 @@
+Hi Adarsh:
+I received your submission - you put a serious effort in it and the result is good. It shows that you learned hands-one how to create mr applications using a nontrivial framework. Now, I have some critical points for you.
+
+1. Your code is sporadically commented, but you did specify important info like inputs and outputs of the mapper.
+2. Your tests are superficial and don't instill any confidence that your implementation works.
+3. Your documentation is ok, although I would prefer to see a more in-depth discussion of your design choices and limitations.
+4. You spend some time discussing how to load the output file into Gephi, but you could discuss more in depth pros and cons of how your generated the key value pairs in the mapper/reducer.
+5. You write much better Scala code, a major improvement. At this point you should learn about monads, how to use Option, and switch to folds and maps and flatmaps instead of heavily using loops.
+
+Despite all that, you have done a good job. Your grade is 4%.
+
+Thank you,
+Mark
